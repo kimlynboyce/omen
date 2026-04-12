@@ -1,8 +1,10 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import random
 import time
 from datetime import datetime, timedelta
+from streamlit_autorefresh import st_autorefresh
 
 # --- THE HOLLYWOOD GRIME (Custom CSS) ---
 st.set_page_config(page_title="VOID // OMEN", page_icon="💀", layout="wide")
