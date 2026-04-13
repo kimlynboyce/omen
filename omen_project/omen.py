@@ -5,6 +5,29 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import os
+import streamlit as st
+import streamlit.components.v1 as components
+
+# --- THE PWA INJECTION ---
+# This tells the phone's browser that the manifest exists
+st.set_page_config(page_title="OMNI-NODE", page_icon="🛡️", layout="wide")
+
+def inject_pwa_meta():
+    pwa_html = """
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="OMNI-NODE">
+    <link rel="apple-touch-icon" href="logo.png">
+    """
+    # This reaches into the head of the page
+    st.markdown(f'<div style="display:none">{pwa_html}</div>', unsafe_allow_html=True)
+
+inject_pwa_meta()
+
+# --- YOUR EXISTING APP LOGIC STARTS HERE ---
+st.title("🛡️ OMEN OMNI-NODE")
+st.write("Decentralized Legacy OS // Build 2026.04.12")
 
 # --- 1. SYSTEM CORE & INITIALIZATION ---
 st.set_page_config(page_title="OMEN OMNI-NODE", layout="wide", initial_sidebar_state="expanded")
